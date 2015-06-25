@@ -92,6 +92,9 @@ Noclip.CalcView = function()
 		Noclip.speedChangeBuffer = Noclip.speedChangeBuffer * deltaTime
 		Noclip.speed = Noclip.speed *
 			math.pow(10 , 1 + Noclip.speedChangeBuffer * Noclip.sensitivitySpeedChange) * 0.1
+		if Noclip.speed < 0.001 then
+			Noclip.speed = 0.001
+		end
 	end
 	Noclip.moveBuffer = Noclip.angle * (Noclip.moveBuffer * (Noclip.speed * deltaTime))
 	Noclip.position = Noclip.position + Noclip.moveBuffer * Noclip.sensitivityMove
